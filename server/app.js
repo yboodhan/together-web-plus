@@ -13,11 +13,11 @@ let rowdyResults = rowdyLogger.begin(app);
 // app.use('/profile', require('./controllers/profile'));
 
 app.get('/', (req, res) => {
-    res.send('Together Web Server')
+    res.send('Welcome to the Together Web server.')
 })
 
 app.get('*', (req, res) => {
-    res.send('404')
+    res.send('Error: 404, this endpoint does not exist.')
 })
 
 app.listen(3001, () => {
