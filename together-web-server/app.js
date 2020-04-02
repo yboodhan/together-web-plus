@@ -18,7 +18,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 // Set app uses
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 // Map all routes and display in console
 let rowdyLogger = require('rowdy-logger');
