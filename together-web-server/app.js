@@ -16,12 +16,17 @@ let corsOptions = {
 
 // Integrate socket.io
 const io = require('socket.io')(server);
+app.use(function(req,res,next){
+    req.io = io;
+    next();
+});
 
 // Map all routes and display in console
 let rowdyLogger = require('rowdy-logger');
 let rowdyResults = rowdyLogger.begin(app);
 
 // Link all controllers
+app.use('/hello', cors(corsOptions), require('./controllers/index'));
 app.get('/', cors(corsOptions), (req, res) => {
     console.log('I am here!')
     res.send({response: 'HEY'}).status(200);
