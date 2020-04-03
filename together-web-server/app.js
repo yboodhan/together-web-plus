@@ -3,25 +3,29 @@ const express = require("express");
 const app = express();
 const server = require('http').createServer(app);
 
-// Link all controllers
-const index = require("./controllers/index.js");
-app.use(index);
-
 // Include middleware/files
 require("dotenv").config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+// Set up CORS
+let corsOptions = {
+    origin: 'http://localhost:3000/',
+    optionsSuccessStatus: 200
+}
+
 // Integrate socket.io
 const io = require('socket.io')(server);
-
-// Set app uses
-app.use(cors);
-// app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 // Map all routes and display in console
 let rowdyLogger = require('rowdy-logger');
 let rowdyResults = rowdyLogger.begin(app);
+
+// Link all controllers
+app.get('/', cors(corsOptions), (req, res) => {
+    console.log('I am here!')
+    res.send({response: 'HEY'}).status(200);
+})
 
 io.on('connection', function(socket){
     console.log('a user connected with id', socket.id);
@@ -32,7 +36,7 @@ io.on('connection', function(socket){
     });
 });
 
-server.listen(3001, () => {
+server.listen(process.env.PORT || 3001, () => {
     rowdyResults.print()
     console.log('listening')
 })
