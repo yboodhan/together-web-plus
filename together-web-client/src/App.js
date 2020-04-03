@@ -19,13 +19,12 @@ function App() {
     // Monitor endpoint
     const socket = socketIOClient(endpoint);
     socket.on('connected', function(response) {
-        console.log("hey", response.msg);
+        console.log(response.msg);
     });
   });
 
   return (
     <div className="App">
-      <h1>Watch Chat Page</h1>
       <WatchChat></WatchChat>
     </div>
   );

@@ -7,6 +7,7 @@ const server = require('http').createServer(app);
 require("dotenv").config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Set up CORS
 let corsOptions = {
@@ -14,7 +15,7 @@ let corsOptions = {
     optionsSuccessStatus: 200
 }
 
-// Integrate socket.io
+// Integrate socket.io and pass to routers
 const io = require('socket.io')(server);
 app.use(function(req,res,next){
     req.io = io;
@@ -26,22 +27,23 @@ let rowdyLogger = require('rowdy-logger');
 let rowdyResults = rowdyLogger.begin(app);
 
 // Link all controllers
-app.use('/hello', cors(corsOptions), require('./controllers/index'));
+app.use('/chat', cors(corsOptions), require('./controllers/chat'));
+
 app.get('/', cors(corsOptions), (req, res) => {
-    console.log('I am here!')
-    res.send({response: 'HEY'}).status(200);
+    res.send({response: 'Success, GET/'}).status(200);
 })
 
+// Socket listens and emits for main page
 io.on('connection', function(socket){
-    console.log('a user connected with id', socket.id);
-    socket.emit('connected', {msg:'I am connected.'})
+    console.log('💡 A user connected to the main page, id:', socket.id);
+    socket.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
 
-    socket.on("disconnect", () => {
-        console.log('Bye!');
+    socket.on('disconnect', () => {
+        console.log(`🚨 A user disconnected from the main page, id:`, socket.id);
     });
 });
 
 server.listen(process.env.PORT || 3001, () => {
     rowdyResults.print()
-    console.log('listening')
+    console.log(`🌺🌻🌷 I am listening... 🌺🌻🌷`)
 })
