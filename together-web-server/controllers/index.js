@@ -8,7 +8,7 @@ const router = express.Router();
 // });
 
 router.get("/", (req, res) => {
-  res.send({ response: "Server!" }).status(200);
+  res.send({ response: "heya!" }).status(200);
 });
 
 module.exports = router
