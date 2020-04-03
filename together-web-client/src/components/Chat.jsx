@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const Chat = props => {
-    let newEndpoint = 'http://localhost:3001/chat';
-
-    useEffect(() => {
-        // Monitor endpoint
-        props.handleEndpoint(newEndpoint);
-    });
     
     return (
         <div>

@@ -1,0 +1,12 @@
+Step 1:
+Create namespaces for chat,video, etc
+Create rooms for each namespaces
+Join and leave rooms
+Add events!
+
+Step 2:
+Incorporate client and test!
+
+Features:
+1 - User opens room in namespace (watch and chat!)
+2 - Others can join/leave the user's room to get content

@@ -25,14 +25,9 @@ function App() {
     });
   });
 
-  // Handle state change
-  const handleEndpoint = (newEndpoint) => {
-    setEndpoint(newEndpoint);
-  }
-
   return (
     <div className="App">
-      <Chat handleEndpoint={handleEndpoint}></Chat>
+      <Chat></Chat>
     </div>
   );
 }

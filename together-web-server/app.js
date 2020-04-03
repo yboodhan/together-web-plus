@@ -33,7 +33,7 @@ app.get('/', cors(corsOptions), (req, res) => {
 io.on('connection', function(socket){
     // Connection response
     console.log('💡 A user connected to the main page, id:', socket.id);
-    socket.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
+    io.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
 
     // Require all other socket files
     require('./sockets/chatSocket')(socket);
