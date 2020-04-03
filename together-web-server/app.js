@@ -9,13 +9,14 @@ app.use(index);
 
 // Include middleware/files
 require("dotenv").config();
-const bodyParser = require('body-parser')
-const cors = require('cors')
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Integrate socket.io
-const socketIo = require('socket.io');
-const server = http.createServer(app);
-const io = socketIo(server);
+// const socketIo = require('socket.io');
+// const server = http.createServer(app);
+// const io = socketIo(server);
+const io = require('socket.io')();
 
 // Set app uses
 app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
@@ -29,9 +30,11 @@ io.on('connection', function(socket){
     
 
     socket.on("disconnect", () => {
-        console.log('Bye Felicia!');
+        console.log('Bye!');
     });
 });
+
+io.listen(3002)
 
 app.listen(3001, () => {
     rowdyResults.print()

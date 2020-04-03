@@ -12,13 +12,14 @@ import WatchChat from './components/WatchChat';
 // Main app
 function App() {
   // Set states
-  let [endpoint, setEndpoint] = useState('http://127.0.0.1:3001');
+  let [endpoint, setEndpoint] = useState('http://localhost:3002');
     
   // Monitor endpoint
   const socket = socketIOClient(endpoint);
 
   // Catch events
   useEffect(() => {
+    console.log('hey')
     socket.on('connected', function(response) {
         console.log("hey", response.msg);
     });
