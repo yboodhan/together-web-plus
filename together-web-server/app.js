@@ -27,13 +27,16 @@ app.use('/chat', cors(corsOptions), require('./controllers/chat'));
 
 app.get('/', cors(corsOptions), (req, res) => {
     res.send({response: 'Success, GET/'}).status(200);
-})
+});
+
+// Create custom namespace
+const watchChat = io.of('/watchandchat');
 
 // Socket listens and emits for main page
-io.on('connection', function(socket){
+watchChat.on('connection', function(socket){
     // Connection response
-    console.log('💡 A user connected to the main page, id:', socket.id);
-    io.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
+    console.log('💡 A user connected to the main page with the watch and chat namespace, id:', socket.id);
+    watchChat.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
 
     // Require all other socket files
     require('./sockets/chatSocket')(socket);

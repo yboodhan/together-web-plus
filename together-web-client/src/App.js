@@ -12,7 +12,7 @@ import Chat from './components/Chat';
 // Main app
 function App() {
   // Set states
-  let [endpoint, setEndpoint] = useState('http://localhost:3001');
+  let [endpoint, setEndpoint] = useState('http://localhost:3001/watchandchat');
 
   // Catch events
   useEffect(() => {
