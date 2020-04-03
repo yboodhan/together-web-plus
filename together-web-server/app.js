@@ -17,10 +17,6 @@ let corsOptions = {
 
 // Integrate socket.io and pass to routers
 const io = require('socket.io')(server);
-app.use(function(req,res,next){
-    req.io = io;
-    next();
-});
 
 // Map all routes and display in console
 let rowdyLogger = require('rowdy-logger');
@@ -35,9 +31,14 @@ app.get('/', cors(corsOptions), (req, res) => {
 
 // Socket listens and emits for main page
 io.on('connection', function(socket){
+    // Connection response
     console.log('💡 A user connected to the main page, id:', socket.id);
     socket.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
 
+    // Require all other socket files
+    require('./sockets/chatSocket')(socket);
+
+    // Disconnection response
     socket.on('disconnect', () => {
         console.log(`🚨 A user disconnected from the main page, id:`, socket.id);
     });

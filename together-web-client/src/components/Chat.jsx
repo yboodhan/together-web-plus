@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
-// Integrate socket.io
-import socketIOClient from "socket.io-client";
-
-
 const Chat = props => {
-    // Set states
-    let [endpoint, setEndpoint] = useState('http://localhost:3001/chat');
+    let newEndpoint = 'http://localhost:3001/chat';
 
-    // Catch events
     useEffect(() => {
-    // Monitor endpoint
-    const socket = socketIOClient(endpoint);
-    socket.on('connected', function(response) {
-        console.log(response.msg);
+        // Monitor endpoint
+        props.handleEndpoint(newEndpoint);
     });
-    });
-
+    
     return (
         <div>
             <h1>Chat</h1>

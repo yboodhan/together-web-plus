@@ -7,7 +7,7 @@ import socketIOClient from "socket.io-client";
 import './css/App.css';
 
 // Import components
-import WatchChat from './components/WatchChat';
+import Chat from './components/Chat';
 
 // Main app
 function App() {
@@ -20,12 +20,19 @@ function App() {
     const socket = socketIOClient(endpoint);
     socket.on('connected', function(response) {
         console.log(response.msg);
+        socket.emit('eventName1');
+        socket.emit('eventName2');
     });
   });
 
+  // Handle state change
+  const handleEndpoint = (newEndpoint) => {
+    setEndpoint(newEndpoint);
+  }
+
   return (
     <div className="App">
-      <WatchChat></WatchChat>
+      <Chat handleEndpoint={handleEndpoint}></Chat>
     </div>
   );
 }
