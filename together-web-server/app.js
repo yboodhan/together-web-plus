@@ -30,20 +30,35 @@ app.get('/', cors(corsOptions), (req, res) => {
 });
 
 // Create custom namespace
-const watchChat = io.of('/watchandchat');
+const chat = io.of('/chat');
+const watch = io.of('/watch');
 
 // Socket listens and emits for main page
-watchChat.on('connection', function(socket){
+chat.on('connection', function(socket){
     // Connection response
-    console.log('💡 A user connected to the main page with the watch and chat namespace, id:', socket.id);
-    watchChat.emit('connected', {msg:`💡 ${socket.id} connected to the main page.`})
+    console.log('💡 A user connected to the main page with thechat namespace, id:', socket.id);
+    chat.emit('connected', {msg:`💡 ${socket.id} connected to the main page chat socket.`})
 
     // Require all other socket files
     require('./sockets/chatSocket')(socket);
 
     // Disconnection response
     socket.on('disconnect', () => {
-        console.log(`🚨 A user disconnected from the main page, id:`, socket.id);
+        console.log(`🚨 A user disconnected from the main page chat socket, id:`, socket.id);
+    });
+});
+
+watch.on('connection', function(socket){
+    // Connection response
+    console.log('💡 A user connected to the main page with the watch namespace, id:', socket.id);
+    watch.emit('connected', {msg:`💡 ${socket.id} connected to the main page web socket.`})
+
+    // Require all other socket files
+    require('./sockets/watchSocket')(socket);
+
+    // Disconnection response
+    socket.on('disconnect', () => {
+        console.log(`🚨 A user disconnected from the main page watch socket, id:`, socket.id);
     });
 });
 

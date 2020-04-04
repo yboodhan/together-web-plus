@@ -10,3 +10,9 @@ Incorporate client and test!
 Features:
 1 - User opens room in namespace (watch and chat!)
 2 - Others can join/leave the user's room to get content
+
+LOGIC:
+1. On join, check if room exists, if not, create the room with a unique identifier (socket id)
+    Emit event to redirect to the room
+2. If room exists, join, if says it does and not stored, then error
+3. Emit user joined/room created and then log type
