@@ -40,7 +40,7 @@ chat.on('connection', function(socket){
     chat.emit('connected', {msg:`💡 ${socket.id} connected to the chat socket.`})
 
     // Require all other socket files
-    require('./sockets/chatSocket')(socket);
+    require('./sockets/chatSocket')(socket, chat);
 
     // Disconnection response
     socket.on('disconnect', () => {
