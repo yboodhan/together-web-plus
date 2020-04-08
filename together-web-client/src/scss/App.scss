@@ -1,24 +1,17 @@
 // THEME COLORS
-$primary-color: #FF9AA2;
-$secondary-color: #FFB7B2;
-$tertiary-color: #FFDAC1;
-$quaternary-color: #E2F0CB;
-$quinary-color: #BFEAD7;
-$senary-color:#C7CEEA;
+$primary-color: #000000;
+$secondary-color: #FF9AAF;
+$tertiary-color: #C7CEEF;
 
 // STYLES
 .App {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Noto Sans', sans-serif;
 }
 
-h1 {
-    color: $primary-color;
-}
-
-h2 {
+h1, h2 {
     color: $secondary-color;
 }
 
 a {
-    color: $senary-color !important;
+    color: $primary-color !important;
 }

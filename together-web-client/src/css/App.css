@@ -1,17 +1,13 @@
 .App {
-  font-family: "Fredoka One", cursive;
+  font-family: "Noto Sans", sans-serif;
 }
 
-h1 {
-  color: #FF9AA2;
-}
-
-h2 {
-  color: #FFB7B2;
+h1, h2 {
+  color: #FF9AAF;
 }
 
 a {
-  color: #C7CEEA !important;
+  color: #000000 !important;
 }
 
 /*# sourceMappingURL=App.css.map */
