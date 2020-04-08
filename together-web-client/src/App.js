@@ -1,18 +1,23 @@
 import React from 'react';
 
+// Import Router to navigate
+import { BrowserRouter as Router } from 'react-router-dom';
+
 // Import styles
 import './css/App.css';
 
 // Import components
-import WatchChat from './components/WatchChat';
+import Content from './components/Content';
 
 // Main app
 function App() {
 
   return (
-    <div className="App">
-      <WatchChat></WatchChat>
-    </div>
+    <Router>
+      <div className="App">
+        <Content/>
+      </div>
+    </Router>
   );
 }
 
