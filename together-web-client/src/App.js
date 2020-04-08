@@ -8,6 +8,7 @@ import './css/App.css';
 
 // Import components
 import Content from './components/Content';
+import NavBar from './components/NavBar';
 
 // Main app
 function App() {
@@ -15,7 +16,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Content/>
+        <NavBar/>
+        <main>
+          <Content/>
+        </main>
       </div>
     </Router>
   );
