@@ -7,6 +7,10 @@ $quinary-color: #BFEAD7;
 $senary-color:#C7CEEA;
 
 // STYLES
+.App {
+    font-family: 'Fredoka One', cursive;
+}
+
 h1 {
-    color: $tertiary-color;
+    color: $primary-color;
 }

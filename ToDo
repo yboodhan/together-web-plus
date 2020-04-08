@@ -16,3 +16,5 @@ LOGIC:
     Emit event to redirect to the room
 2. If room exists, join, if says it does and not stored, then error
 3. Emit user joined/room created and then log type
+
+-- Images : https://www.manypixels.co/gallery/?s=error
