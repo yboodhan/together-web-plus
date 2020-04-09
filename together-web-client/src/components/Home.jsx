@@ -1,9 +1,6 @@
 import React from 'react';
 
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLaptop } from '@fortawesome/free-solid-svg-icons';
+import { Button, Form, Label, Input } from 'reactstrap';
 
 import {ReactComponent as HomeImage} from '../static/network.svg';
 
@@ -29,7 +26,7 @@ const Home = props => {
             <Form style={style} inline>
                 <Label for="email" hidden>Email</Label>
                 <Input className="m-2" type="email" name="email" id="email" placeholder="Email address"/>
-                <Button className="my-2 button">Sign up!</Button>
+                <Button className="my-2 button" type="submit">Sign up!</Button>
             </Form>
         </div>
     )

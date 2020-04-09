@@ -2,6 +2,7 @@
 $primary-color: #0A9D80;
 $secondary-color: #006753;
 $tertiary-color: #81C6B8;
+$quarnary-color: #FFFFFF;
 
 $primary-font: 'Noto Sans', sans-serif;
 $secondary-font: 'Economica', sans-serif;
@@ -50,4 +51,11 @@ a {
 small {
     color: $secondary-color;
     font-weight: bold;
+}
+
+footer {
+    background-color: $secondary-color;
+    color: $quarnary-color;
+    padding: 2em 4em 2em 4em;
+    margin-top: 5em;
 }

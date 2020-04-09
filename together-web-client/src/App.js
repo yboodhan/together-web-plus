@@ -9,6 +9,7 @@ import './css/App.css';
 // Import components
 import Content from './components/Content';
 import NavBar from './components/NavBar';
+import Footer from'./components/Footer';
 
 // Main app
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <main>
           <Content/>
         </main>
+        <Footer/>
       </div>
     </Router>
   );
