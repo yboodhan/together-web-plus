@@ -3,11 +3,37 @@
 }
 
 h1, h2 {
-  color: #FF9AAF;
+  color: #006753;
+}
+
+h3 {
+  color: #0A9D80;
 }
 
 a {
-  color: #000000 !important;
+  color: #0A9D80 !important;
+}
+
+.subheading {
+  color: #006753;
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.slogan {
+  color: #0A9D80;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.logo {
+  font-family: "Economica", sans-serif;
+  font-size: 3.5em;
+}
+
+.button {
+  background-color: #0A9D80 !important;
+  border-style: none !important;
 }
 
 /*# sourceMappingURL=App.css.map */

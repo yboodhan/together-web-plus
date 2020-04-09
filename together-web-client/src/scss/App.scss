@@ -1,17 +1,47 @@
 // THEME COLORS
-$primary-color: #000000;
-$secondary-color: #FF9AAF;
-$tertiary-color: #C7CEEF;
+$primary-color: #0A9D80;
+$secondary-color: #006753;
+$tertiary-color: #81C6B8;
+
+$primary-font: 'Noto Sans', sans-serif;
+$secondary-font: 'Economica', sans-serif;
 
 // STYLES
 .App {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: $primary-font;
 }
 
 h1, h2 {
     color: $secondary-color;
 }
 
+h3 {
+    color: $primary-color;
+}
+
 a {
     color: $primary-color !important;
+}
+
+.subheading {
+    color: $secondary-color;
+    margin: 0;
+    font-size: 1.3em;
+
+}
+
+.slogan {
+    color: $primary-color;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.logo {
+    font-family: $secondary-font;
+    font-size: 3.5em;
+}
+
+.button {
+    background-color: $primary-color !important;
+    border-style: none !important;
 }

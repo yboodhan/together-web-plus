@@ -16,6 +16,7 @@ import {
   } from 'reactstrap';
 
 
+
 const NavBar = props => {
 
     // Toggle functionality
@@ -25,8 +26,8 @@ const NavBar = props => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+            <Navbar style={{backgroundColor:"#0A9D80"}} light expand="md">
+                <NavbarBrand href="/" style={{color:"#FFFFFF"}}> TogetherWeb </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>

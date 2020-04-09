@@ -10,7 +10,7 @@ import Error from "./Error"; // Contains ERROR page
 
 const Content = props => {
     return (
-        <div className="mx-2 my-4">
+        <div className="mx-4 my-4">
         <Switch>
 
             <Route exact path="/" render={
