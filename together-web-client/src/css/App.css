@@ -37,4 +37,9 @@ a {
   border-style: none !important;
 }
 
+small {
+  color: #006753;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=App.css.map */

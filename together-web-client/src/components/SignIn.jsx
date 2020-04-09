@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Input, Form, FormGroup, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const SignIn = props => {
     let [modal, setModal] = useState(false);
@@ -10,14 +10,27 @@ const SignIn = props => {
         <div>
           <Button onClick={toggle} size="sm" className="float-right button mr-4">Sign In</Button>
           <Modal isOpen={modal} toggle={toggle}>
-            <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-            <ModalBody>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            <ModalBody style={{padding: '1em 3em 3em 3em'}}>
+                <h1 className="text-center" style={{paddingTop: '1em'}}>Sign In</h1>
+                <Form>
+                    <FormGroup style={{paddingTop: '1em'}}>
+                        <Label for="email"><small>EMAIL</small></Label>
+                        <Input type="email" name="email" id="email" placeholder="Email address" />
+                    </FormGroup>
+                    <FormGroup style={{padding: '1em 0em 1em 0em'}}>
+                        <Label for="password"><small>PASSWORD</small></Label>
+                        <Input type="password" name="password" id="password" placeholder="Password" />
+                    </FormGroup>
+                <Button className="button float-right" type="submit">Sign In</Button>
+                </Form>
             </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-              <Button color="secondary" onClick={toggle}>Cancel</Button>
+
+            <ModalFooter style={{justifyContent: 'center'}}>
+                <p>Don't have an account? </p>
+                <a>Create an account today!</a>
             </ModalFooter>
+
           </Modal>
         </div>
       );
