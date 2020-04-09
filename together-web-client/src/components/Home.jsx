@@ -17,7 +17,8 @@ const style = {
 const Home = props => {
     return (
         <div>
-            <h1 className="logo">Together Web</h1>
+            <Button size="sm" className="float-right button mr-4">Sign In</Button>
+            <p className="logo">Together Web</p>
             <p className="text-center subheading">Watch. Chat. Listen. Together.</p>
             <p className="text-center slogan">Anywhere. Anytime. No hassle.</p>
             <div className="py-3" style={style}>
