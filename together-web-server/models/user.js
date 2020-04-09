@@ -8,7 +8,13 @@ const saltRounds = 12;
 
 // Create user schema
 let userSchema = new Schema({
-    username: String,
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        minlength: 3
+    },
+    about: String,
     email: {
         type: String,
         required: true,
@@ -22,14 +28,19 @@ let userSchema = new Schema({
         maxlength: 32
     },
     photo: String,
+    followers: [], // references to users
+    following: [], // references to users
     watchlists: [] // add reference here!
-})
+});
 
 // Password hashing by bcrypt
 userSchema.pre('save', function(next) {
+    // Only hash if it is new
+    if (!user.isModified('password')) return next();
+
     this.password = bcrypt.hashSync(this.password, saltRounds);
     next();
-})
+});
 
 // Exclude password from user data sent
 userSchema.set('toJSON', {
@@ -38,12 +49,12 @@ userSchema.set('toJSON', {
         delete user._v;
         return user;
     }
-})
+});
 
 // Compare password hashes to check password
 userSchema.methods.isValidPassword = function(typedPassword) {
     return bcrypt.compareSync(typedPassword, this.password);
-}
+};
 
 // Create and export User model
 module.exports = mongoose.model('User', userSchema);
