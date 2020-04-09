@@ -7,6 +7,8 @@ import { faLaptop } from '@fortawesome/free-solid-svg-icons';
 
 import {ReactComponent as HomeImage} from '../static/network.svg';
 
+import SignIn from './SignIn';
+
 const style = {
     display: 'flex', 
     alignItems: 'center', 
@@ -17,7 +19,7 @@ const style = {
 const Home = props => {
     return (
         <div>
-            <Button size="sm" className="float-right button mr-4">Sign In</Button>
+            <SignIn />
             <p className="logo">Together Web</p>
             <p className="text-center subheading">Watch. Chat. Listen. Together.</p>
             <p className="text-center slogan">Anywhere. Anytime. No hassle.</p>
