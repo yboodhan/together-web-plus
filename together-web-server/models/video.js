@@ -2,9 +2,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// Import models
-const User = require('./user');
-
 // Create user schema
 let videoSchema = new Schema({
     title: {

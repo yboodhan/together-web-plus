@@ -6,9 +6,6 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 const saltRounds = 12;
 
-// Import models
-var Watchlist = require('./watchlist');
-
 // Create user schema
 let userSchema = new Schema({
     username: {

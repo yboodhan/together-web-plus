@@ -2,10 +2,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// Import models
-const User = require('./user');
-const Video = require('./video');
-
 // Create user schema
 let watchlistSchema = new Schema({
     name: String,
