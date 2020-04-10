@@ -6,6 +6,9 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcryptjs');
 const saltRounds = 12;
 
+// Import models
+var Watchlist = require('./watchlist');
+
 // Create user schema
 let userSchema = new Schema({
     username: {
@@ -28,9 +31,9 @@ let userSchema = new Schema({
         maxlength: 32
     },
     photo: String,
-    followers: [], // references to users
-    following: [], // references to users
-    watchlists: [] // add reference here!
+    followers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    following: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    watchlist: [{type: mongoose.Schema.Types.ObjectId, ref: 'Watchlist'}]
 });
 
 // Password hashing by bcrypt

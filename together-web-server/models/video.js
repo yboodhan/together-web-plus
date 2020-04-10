@@ -2,17 +2,23 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// Import models
+const User = require('./user');
+
 // Create user schema
 let videoSchema = new Schema({
-    title: String,
+    title: {
+        type: String,
+        required: true,
+        minlength: 1
+    },
     description: String,
     thumbnail: String,
     views: String,
     likes: String,
     dislikes: String,
     link: String,
-    watchlists: [], // add reference to watchlists here
-    users: [] // add reference to users here
+    watchlists: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
 // Create and export Video model
